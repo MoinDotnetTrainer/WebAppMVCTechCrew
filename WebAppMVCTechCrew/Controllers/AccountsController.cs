@@ -24,21 +24,55 @@ namespace WebAppMVCTechCrew.Controllers
 
             _db.Users.Add(data);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("DisplayUsers");
         }
 
+
+        [HttpGet]
         public IActionResult DisplayUsers()
         {
-            return View();
+            var res = _db.Users.ToList();
+            return View(res);
         }
 
-        public IActionResult EditUsers()
+
+        [HttpGet]
+        public IActionResult EditUsers(int id)
         {
-            return View();
+            var res = _db.Users.Where(x => x.ID == id).FirstOrDefault();
+            return View(res);
         }
-        public IActionResult DeleteUsers()
+
+        [HttpPost]
+        public IActionResult EditUsers(UsersModel data)
         {
-            return View();
+            _db.Users.Update(data);
+            _db.SaveChanges();
+            return RedirectToAction("DisplayUsers");
         }
+      
+        [HttpGet]
+        public IActionResult DeleteUsers(int id)
+        {
+            var res = _db.Users.Where(x => x.ID == id).FirstOrDefault();
+            return View(res);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteUsers(UsersModel data)
+        {
+            var find = _db.Users.Find(data.ID);
+            if (find != null)
+            {
+                _db.Users.Remove(find);
+                _db.SaveChanges();
+                return RedirectToAction("DisplayUsers");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
     }
 }
