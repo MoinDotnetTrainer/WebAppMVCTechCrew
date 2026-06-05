@@ -5,7 +5,8 @@ namespace WebAppMVCTechCrew.Models
     public class ProductsModel
     {
         [Key]
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        [Required(ErrorMessage ="Name Required")]
         public string Name { get; set; }
         public string Category { get; set; }
         public int Price { get; set; }

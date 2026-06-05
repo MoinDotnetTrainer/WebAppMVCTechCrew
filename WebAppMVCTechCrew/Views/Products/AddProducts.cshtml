@@ -22,7 +22,8 @@
                             <div class="col-md-6 mb-3">
                                 <label asp-for="Name" class="form-label fw-semibold"></label>
                                 <input asp-for="Name" class="form-control" placeholder="Product Name" />
-                                   </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>  
+                            </div>
 
                             <div class="col-md-6 mb-3">
                                 <label asp-for="Category" class="form-label fw-semibold"></label>

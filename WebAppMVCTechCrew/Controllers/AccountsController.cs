@@ -34,8 +34,6 @@ namespace WebAppMVCTechCrew.Controllers
                 ModelState.AddModelError("err", "Invalid Email or Password");
                 return View();
             }
-
-           
         }
 
 

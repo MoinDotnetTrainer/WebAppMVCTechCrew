@@ -21,9 +21,16 @@ namespace WebAppMVCTechCrew.Controllers
         [HttpPost]
         public IActionResult AddProducts(ProductsModel data)
         {
-            _db.Products.Add(data);
-            _db.SaveChanges();
-            return RedirectToAction("DisplayProducts");
+            if (ModelState.IsValid)
+            {
+                _db.Products.Add(data);
+                _db.SaveChanges();
+                return RedirectToAction("DisplayProducts");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 
