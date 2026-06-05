@@ -109,8 +109,7 @@ namespace WebAppMVCTechCrew.Controllers
         }
         [SetSessionGlobally]
         public IActionResult HomePage()
-        {
-           
+        { 
             return View();
         }
         public IActionResult Logout()

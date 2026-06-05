@@ -1,10 +1,8 @@
-﻿@model IEnumerable<WebAppMVCTechCrew.Models.UsersModel>   
-
+﻿@model IEnumerable<WebAppMVCTechCrew.Models.Aadhar>
 @{
-    ViewData["Title"] = "DisplayUsers";
+    ViewData["Title"] = "AadharInfo";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
 
 
 
@@ -23,12 +21,13 @@
                     <table class="table table-striped table-hover table-bordered align-middle">
                         <thead class="table-dark">
                             <tr>
-                                <th>ID</th>
+                                <th>Aadhar NO</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Gender</th>
                                 <th>Dob</th>
+                                <th>Address</th>
+                                <th>Pan No</th>
+                                <th>Pan UserName</th>
+                          
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,28 +36,25 @@
                             {
                                 <tr>
                                     <td>
-                                        @item.ID
+                                        @item.AadharNo
                                     </td>
                                     <td>
-                                        @item.Username
-                                    </td>
-                                    <td>
-                                        @item.Email
-                                    </td>
-                                    <td>
-                                        @item.Password
-                                    </td>
-                                    <td>
-                                        @item.Gender
+                                        @item.Name
                                     </td>
                                     <td>
                                         @item.Dob
                                     </td>
                                     <td>
-                                        <a asp-action="EditUsers" asp-controller="Accounts" asp-route-id=@item.ID>Edit</a>|
-
-                                        <a asp-action="DeleteUsers" asp-controller="Accounts" asp-route-id=@item.ID>Delete</a>
-
+                                        @item.Address
+                                    </td>
+                                    <td>
+                                        @item.pan.PanNo
+                                    </td>
+                                    <td>
+                                        @item.pan.PanUserName
+                                    </td>
+                                    <td>
+                                      
                                     </td>
 
                                 </tr>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppMVCTechCrew.Models;
 
@@ -11,9 +12,11 @@ using WebAppMVCTechCrew.Models;
 namespace WebAppMVCTechCrew.Migrations
 {
     [DbContext(typeof(AppDb))]
-    partial class AppDbModelSnapshot : ModelSnapshot
+    [Migration("20260605094103_aadhars")]
+    partial class aadhars
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,56 +71,6 @@ namespace WebAppMVCTechCrew.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("WebAppMVCTechCrew.Models.Dept", b =>
-                {
-                    b.Property<int>("DeptID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeptID"));
-
-                    b.Property<string>("Dname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Loc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DeptID");
-
-                    b.ToTable("dept");
-                });
-
-            modelBuilder.Entity("WebAppMVCTechCrew.Models.Emp", b =>
-                {
-                    b.Property<int>("EmpID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmpID"));
-
-                    b.Property<int>("DeptID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Ename")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Job")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Salary")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmpID");
-
-                    b.HasIndex("DeptID");
-
-                    b.ToTable("emp");
                 });
 
             modelBuilder.Entity("WebAppMVCTechCrew.Models.Pan", b =>
@@ -206,17 +159,6 @@ namespace WebAppMVCTechCrew.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebAppMVCTechCrew.Models.Emp", b =>
-                {
-                    b.HasOne("WebAppMVCTechCrew.Models.Dept", "dept")
-                        .WithMany("emps")
-                        .HasForeignKey("DeptID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("dept");
-                });
-
             modelBuilder.Entity("WebAppMVCTechCrew.Models.Pan", b =>
                 {
                     b.HasOne("WebAppMVCTechCrew.Models.Aadhar", "aaddhar")
@@ -232,11 +174,6 @@ namespace WebAppMVCTechCrew.Migrations
                 {
                     b.Navigation("pan")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WebAppMVCTechCrew.Models.Dept", b =>
-                {
-                    b.Navigation("emps");
                 });
 #pragma warning restore 612, 618
         }
