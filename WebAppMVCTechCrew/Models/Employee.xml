@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<staff>
+	<employee>
+		<id>1</id>
+		<name>Sam</name>
+		<email>Sam@yahoo.com</email>
+		<car></car>
+	</employee>
+	<employee>
+		<id>1</id>
+		<name>Ash</name>
+		<email>ash@yahoo.com</email>
+		<car>X model car</car>
+	</employee>
+</staff>

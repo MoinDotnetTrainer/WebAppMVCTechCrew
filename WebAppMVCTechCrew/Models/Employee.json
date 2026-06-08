@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "name": "ash",
+  "email": "ash@yahoo.com",
+  "Salary": 50000.56,
+  "Status": true,
+  "Car": null,
+  "Hobbies": [ "Reading", "writing" ],
+  "Parents": {
+    "Father": "xyz",
+    "Mother": "abc"
+  }
+}
